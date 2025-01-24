@@ -8,7 +8,7 @@ fake = Faker("EN_IN")
 db = mysql.connector.connect(
     host='localhost',  
     user="root",  
-    password="MrKhan123!",  
+    password="password!",  
     database="Mark",
     auth_plugin='mysql_native_password'
    
