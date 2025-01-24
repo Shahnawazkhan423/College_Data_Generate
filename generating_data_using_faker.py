@@ -8,7 +8,7 @@ fake = Faker("EN_IN")
 db = mysql.connector.connect(
     host='localhost',  
     user="root",  
-    password="password!",  
+    password="MrKhan123!",  
     database="Mark",
     auth_plugin='mysql_native_password'
    
@@ -30,7 +30,17 @@ def College_Table():
 def Department_Table():
     for _ in range(10):  
         ID  = fake.unique.random_int(100,200)
-        Name = fake.word().title() + " Department"
+        Name = fake.random_element([
+            "Computer Science", 
+            "Electrical Engineering", 
+            "Mechanical Engineering", 
+            "Mathematics", 
+            "Physics", 
+            "Chemistry", 
+            "Business Administration", 
+            "Humanities", 
+            "Biotechnology"
+        ])
         Head = fake.name()
         Email = fake.email()
         Contact = fake.phone_number()
@@ -44,7 +54,18 @@ def Department_Table():
 def Program_Table():
     for _ in range(10): 
         ID =fake.unique.random_int(201,300)
-        Name = fake.word().title()+"Program"
+        Name = fake.random_element([
+            "Bachelor of Science (B.Sc.)",
+            "Bachelor of Arts (B.A.)",
+            "Master of Science (M.Sc.)",
+            "Master of Technology (M.Tech)",
+            "Bachelor of Engineering (B.E.)",
+            "Master of Business Administration (MBA)",
+            "Doctor of Philosophy (Ph.D.)",
+            "Bachelor of Commerce (B.Com)",
+            "Bachelor of Computer Applications (BCA)",
+            "Master of Computer Applications (MCA)"
+        ])
         Degree_Level =fake.random_element(["Bachelor", "Master", "Doctorate"])
         Duration = fake.random_int(min=1,max=6)
         Program_Type = fake.random_element(["Full-Time","Part-Time"])
@@ -58,7 +79,7 @@ def Program_Table():
 def Faculty_Table():
     for _ in range(10):
         ID = fake.unique.random_int(301,400)
-        Name = fake.word().title()+"Faculty"
+        Name = fake.name()
         Email = fake.email()
         Contact = fake.phone_number()
         Department_ID = Department_Table()
